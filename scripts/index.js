@@ -20,9 +20,17 @@ export let serverInfo;
 
 http
   .get(apiRequest.serverInfo)
-  .then((response) => {
+  .then(async (response) => {
     serverInfo = JSON.parse(response.body);
     console.log(`[MCBES] OK: Success getting server information.`);
+
+    if (await serverInfo.services.includes("vote")) {
+      import("./modules/vote.js");
+    }
+
+    if (await serverInfo.services.includes("market")) {
+      import("./modules/market.js");
+    }
   })
   .catch(() => {
     console.warn(`[MCBES] Bad Request: error getting server information.`);
@@ -41,11 +49,3 @@ world.afterEvents.playerJoin.subscribe((event) => {
     response.body;
   });
 });
-
-if (serverInfo.services.include("vote")) {
-  import("./modules/vote.js");
-}
-
-if (serverInfo.services.include("market")) {
-  import("./modules/market.js");
-}
