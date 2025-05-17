@@ -1,6 +1,6 @@
 const config = {
-  base_url: "https://web.mcbes.viidev.com/api", // Base URL for the API.
-  server_key: "66ef4e655011c07978f99d6ab81a3a0e", // Get your server key from MC Bedrock Ecosystem Server.
+  base_url: "https://mcbes.test/api", // Base URL for the API.
+  server_key: "", // Paste your server key from MC Bedrock Ecosystem Server.
   modules: {
     vote: {
       reward: [
