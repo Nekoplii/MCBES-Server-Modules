@@ -3,7 +3,6 @@ const config = {
   server_key: "66ef4e655011c07978f99d6ab81a3a0e", // Get your server key from MC Bedrock Ecosystem Server.
   modules: {
     vote: {
-      enable: true, // Enable or disable the vote module.
       reward: [
         // Reward if player successfully to vote your server.
         "give @s emerald 2",
@@ -13,9 +12,6 @@ const config = {
         "scoreboard players add @s money 1000",
         // Add other commands here...
       ],
-    },
-    market: {
-      enable: true, // Enable or disable the market module.
     },
   },
 };

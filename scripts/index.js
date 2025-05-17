@@ -7,14 +7,6 @@ import {
 } from "@minecraft/server-net";
 import config from "./config.js";
 
-if (config.modules.vote.enable) {
-  import("./modules/vote.js");
-}
-
-if (config.modules.market.enable) {
-  import("./modules/market.js");
-}
-
 export const apiRequest = {
   serverInfo: `${config.base_url}/server/${config.server_key}/info`,
   playerJoin: `${config.base_url}/server/${config.server_key}/player/join`,
@@ -49,3 +41,11 @@ world.afterEvents.playerJoin.subscribe((event) => {
     response.body;
   });
 });
+
+if (serverInfo.services.include("vote")) {
+  import("./modules/vote.js");
+}
+
+if (serverInfo.services.include("market")) {
+  import("./modules/market.js");
+}
